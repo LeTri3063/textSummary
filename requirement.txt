@@ -1,0 +1,4 @@
+torch==2.5.1
+transformers==4.52.4
+rouge-score==0.1.2
+matplotlib==3.10.3
