@@ -1,0 +1,2 @@
+# textSummary
+基于BERT和Transformer的文本摘要系统
