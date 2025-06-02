@@ -185,10 +185,9 @@ class Trainer:
                 val_loss += loss.item()
 
                 # 生成预测文本
-                generated_ids = self.model.generate(
+                generated_ids = self.model.forward(
                     input_ids=batch['input_ids'],
                     attention_mask=batch['attention_mask'],
-                    max_length=self.config.max_target_length  # 最大生成长度
                 )
 
                 # 将token ids转换为文本
@@ -237,8 +236,7 @@ class Trainer:
         }
 
         # 确保输出目录存在
-        os.makedirs(self.config.output_dir, exist_ok=True)
-        metrics_path = os.path.join(self.config.output_dir, 'training_metrics.json')
+        metrics_path = os.path.join("test_results.json")
 
         with open(metrics_path, 'w') as f:
             json.dump(metrics, f, indent=4)
@@ -270,7 +268,7 @@ class Trainer:
         plt.tight_layout()
 
         # 保存图像
-        plot_path = os.path.join(self.config.output_dir, 'training_curves.png')
+        plot_path = os.path.join('training_curves.png')
         plt.savefig(plot_path)
         plt.close()
 
