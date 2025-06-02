@@ -19,18 +19,13 @@ class ModelConfig:
 class TrainingConfig:
     """训练过程配置类"""
     batch_size: int = 16  # 训练批大小
-    epochs: int = 10  # 训练轮数
+    epochs: int = 5  # 训练轮数
     learning_rate: float = 1e-4  # 初始学习率
     warmup_steps: int = 4000  # 学习率预热步数
     accumulation_steps: int = 4  # 梯度累积步数
     max_grad_norm: float = 1.0  # 梯度裁剪最大值
     weight_decay: float = 0.01  # L2正则化系数
     adam_epsilon: float = 1e-8  # Adam优化器的epsilon
-
-
-@dataclass
-class GenerationConfig:
-    """文本生成配置类"""
     max_length: int = 150  # 生成的最大长度
     min_length: int = 10  # 生成的最小长度
     top_k: int = 50  # top-k采样参数
